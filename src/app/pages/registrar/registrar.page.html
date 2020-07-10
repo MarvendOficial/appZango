@@ -1,9 +1,11 @@
+
+
 <ion-header color="negroZango">
   <ion-toolbar color="negroZango" class="bordeVZ">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title size="small">Registrar Empresa</ion-title>
+    <ion-title size="small" >Registrar Empresa</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,20 +13,84 @@
 <ion-content color="negroZango">
   <ion-card-content>
     <form>
-      <ion-item color="fondoNZ">
+      <ion-item color="">
         <ion-label position="stacked"></ion-label>
-        <ion-input placeholder="Número de la empresa"></ion-input>
-        <ion-input placeholder="Nombre de la empresa"></ion-input>
-        <ion-input placeholder="No. de trampas interiores"></ion-input>
-        <ion-input placeholder="No. de trampas exteriores"></ion-input>
-        <ion-input placeholder="No. de lámparas"></ion-input>
-        <ion-input placeholder="Dirección"></ion-input>
-        <ion-input placeholder="Ciudad"></ion-input>
-        <ion-input placeholder="Estado"></ion-input>
-        <ion-input placeholder="Código Postal"></ion-input>
+
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="lock-open-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="ID de la empresa"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="business-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="Nombre de la empresa"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="cube-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="No. de trampas interiores"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="cube-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="No. de trampas exteriores"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="sunny-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="No. de lámparas"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="person-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="Contacto"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="call-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="Telefono"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon color="verdeZango" name="location-outline" class="centrarIcon"></ion-icon>
+          </ion-col>
+          <ion-col size="10" offset="1">
+            <ion-input placeholder="Dirección"></ion-input>
+          </ion-col>
+        </ion-row>
+        
       </ion-item>
       <ion-row no-border>
-        <ion-col size="10" offset="1" no-border>
+        <ion-col size="10" offset="1" no-border style="margin-top: 6%;">
           <ion-button color="verdeZango" expand="full" shape="round" node="ios">
             Registrar
           </ion-button>

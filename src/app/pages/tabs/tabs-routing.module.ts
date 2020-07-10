@@ -22,6 +22,18 @@ const routes: Routes = [
       },
       {
         path: 'tab1/analizar', loadChildren: '../analizar/analizar.module#AnalizarPageModule'
+      },
+      {
+        path: 'tab1/analizar/empresa', loadChildren: '../empresa/empresa.module#EmpresaPageModule'
+      },
+      {
+        path: 'tab1/analizar/empresa/exteriores', loadChildren: '../exteriores/exteriores.module#ExterioresPageModule'
+      },
+      {
+        path: 'tab1/analizar/empresa/interior', loadChildren: '../interior/interior.module#InteriorPageModule'
+      },
+      {
+        path: 'tab1/analizar/empresa/lamparas', loadChildren: '../lamparas/lamparas.module#LamparasPageModule'
       }
     ]
   },

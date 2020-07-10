@@ -11,6 +11,22 @@ const routes: Routes = [
     path: 'analizar',
     loadChildren: () => import('./pages/analizar/analizar.module').then( m => m.AnalizarPageModule)
   },
+  {
+    path: 'empresa',
+    loadChildren: () => import('./pages/empresa/empresa.module').then( m => m.EmpresaPageModule)
+  },
+  {
+    path: 'exteriores',
+    loadChildren: () => import('./pages/exteriores/exteriores.module').then( m => m.ExterioresPageModule)
+  },
+  {
+    path: 'interior',
+    loadChildren: () => import('./pages/interior/interior.module').then( m => m.InteriorPageModule)
+  },
+  {
+    path: 'lamparas',
+    loadChildren: () => import('./pages/lamparas/lamparas.module').then( m => m.LamparasPageModule)
+  }
 
 ];
 
