@@ -12,7 +12,7 @@
 
 <ion-content color="negroZango">
   <ion-card-content>
-    <form>
+    <form name="form" #f="ngForm">
       <ion-item color="">
         <ion-label position="stacked"></ion-label>
 
@@ -21,7 +21,7 @@
             <ion-icon color="verdeZango" name="lock-open-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="ID de la empresa"></ion-input>
+            <ion-input placeholder="ID de la empresa" [(ngModel)]="empresa.id" name="id"></ion-input>
           </ion-col>
         </ion-row>
 
@@ -30,7 +30,7 @@
             <ion-icon color="verdeZango" name="business-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="Nombre de la empresa"></ion-input>
+            <ion-input placeholder="Nombre de la empresa" [(ngModel)]="empresa.nombre" name="nombre"></ion-input>
           </ion-col>
         </ion-row>
 
@@ -39,7 +39,7 @@
             <ion-icon color="verdeZango" name="cube-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="No. de trampas interiores"></ion-input>
+            <ion-input placeholder="No. de trampas interiores" [(ngModel)]="empresa.noInterior" name="noInterior"></ion-input>
           </ion-col>
         </ion-row>
 
@@ -48,7 +48,7 @@
             <ion-icon color="verdeZango" name="cube-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="No. de trampas exteriores"></ion-input>
+            <ion-input placeholder="No. de trampas exteriores" [(ngModel)]="empresa.noExterior" name="noExterior"></ion-input>
           </ion-col>
         </ion-row>
         
@@ -57,7 +57,7 @@
             <ion-icon color="verdeZango" name="sunny-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="No. de lámparas"></ion-input>
+            <ion-input placeholder="No. de lámparas" [(ngModel)]="empresa.noLamparas" name="noLamparas"></ion-input>
           </ion-col>
         </ion-row>
         
@@ -66,7 +66,7 @@
             <ion-icon color="verdeZango" name="person-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="Contacto"></ion-input>
+            <ion-input placeholder="Contacto" [(ngModel)]="empresa.contacto" name="contacto"></ion-input>
           </ion-col>
         </ion-row>
         
@@ -75,7 +75,7 @@
             <ion-icon color="verdeZango" name="call-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="Telefono"></ion-input>
+            <ion-input placeholder="Telefono" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>
           </ion-col>
         </ion-row>
         
@@ -84,14 +84,14 @@
             <ion-icon color="verdeZango" name="location-outline" class="centrarIcon"></ion-icon>
           </ion-col>
           <ion-col size="10" offset="1">
-            <ion-input placeholder="Dirección"></ion-input>
+            <ion-input placeholder="Dirección" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>
           </ion-col>
         </ion-row>
         
       </ion-item>
       <ion-row no-border>
         <ion-col size="10" offset="1" no-border style="margin-top: 6%;">
-          <ion-button color="verdeZango" expand="full" shape="round" node="ios">
+          <ion-button color="verdeZango" expand="full" shape="round" node="ios" (click)="registrar()">
             Registrar
           </ion-button>
         </ion-col>
