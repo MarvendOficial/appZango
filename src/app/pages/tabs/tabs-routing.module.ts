@@ -34,6 +34,9 @@ const routes: Routes = [
       },
       {
         path: 'tab1/analizar/empresa/lamparas', loadChildren: '../lamparas/lamparas.module#LamparasPageModule'
+      },
+      {
+        path: 'tab1/analizar/empresa/portada', loadChildren: '../portada/portada.module#PortadaPageModule'
       }
     ]
   },
