@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'lamparas',
     loadChildren: () => import('./pages/lamparas/lamparas.module').then( m => m.LamparasPageModule)
+  },
+  {
+    path: 'portada',
+    loadChildren: () => import('./pages/portada/portada.module').then( m => m.PortadaPageModule)
   }
 
 ];

@@ -19,6 +19,9 @@ export class EmpresaPage implements OnInit {
   irLamparas(){
     this.router.navigateByUrl('/tabs/tab1/analizar/empresa/lamparas')
   }
+  irPortada(){
+    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/portada')
+  }
   ngOnInit() {
   }
 
