@@ -8,18 +8,18 @@ import { ConeccionService } from 'src/app/services/coneccion.service';
   styleUrls: ['./analizar.page.scss'],
 })
 export class AnalizarPage implements OnInit {
-datos:any=[];
-  constructor(private router: Router, private empresaService: ConeccionService) { 
-    this.empresaService.obtenerEmpresas().subscribe((res)=>{
-      this.datos=res;
-      console.log(this.datos.nombre)
-    })
+  datos: any;
+  constructor(private router: Router, private empresaService: ConeccionService) {
+    this.empresaService.obtenerEmpresas().subscribe((res) => {
+      this.datos = res;
+      console.log(this.datos);
+    });
   }
 
-  empresa(){
+  empresa() {
     this.router.navigateByUrl('/tabs/tab1/analizar/empresa')
   }
-  verEmpresas(){
+  verEmpresas() {
     console.log(this.empresaService.obtenerEmpresas())
   }
 

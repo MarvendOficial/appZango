@@ -13,6 +13,6 @@ export class ConeccionService {
     return this.grupoZango.database.ref('grupoZangoApp/emmpresa').push(empresa);
   }
   obtenerEmpresas(){
-    return this.grupoZango.object('grupoZangoApp/emmpresa').valueChanges()
+    return this.grupoZango.list('grupoZangoApp/emmpresa').valueChanges();
   }
 }

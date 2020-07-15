@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConeccionService } from 'src/app/services/coneccion.service';
 
 @Component({
   selector: 'app-empresa',
@@ -7,19 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./empresa.page.scss'],
 })
 export class EmpresaPage implements OnInit {
+  datos: any;
+  constructor(private router: Router, private empresaService: ConeccionService) {
+    this.empresaService.obtenerEmpresas().subscribe((res) => {
+      console.log(res);
+      this.datos = res;
+      console.log(this.datos);
+    });
+  }
 
-  constructor(private router: Router) { }
-
-  irExteriores(){
+  irExteriores() {
     this.router.navigateByUrl('/tabs/tab1/analizar/empresa/exteriores')
   }
-  irInterior(){
+  irInterior() {
     this.router.navigateByUrl('/tabs/tab1/analizar/empresa/interior')
   }
-  irLamparas(){
+  irLamparas() {
     this.router.navigateByUrl('/tabs/tab1/analizar/empresa/lamparas')
   }
-  irPortada(){
+  irPortada() {
     this.router.navigateByUrl('/tabs/tab1/analizar/empresa/portada')
   }
   ngOnInit() {
