@@ -21,7 +21,9 @@ datos:any=[];
   }
   verEmpresas(){
     console.log(this.empresaService.obtenerEmpresas())
+    
   }
+
 
   ngOnInit() {
   }
