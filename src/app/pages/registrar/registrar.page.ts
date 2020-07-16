@@ -24,17 +24,9 @@ export class RegistrarPage implements OnInit {
 
   ngOnInit() {
   }
-  
-  async registrar() {
-    this.registrarEmpresa.registrarEmpresas(this.empresa).then(()=>{
-      this.cargar();
-      console.log('Empresa registrada');
-    },
-    (err)=>{
-      console.log(err)
-    })
-    this.alerta();
-    this.limpiarDatos();
+  registrar() {
+    this.registrarEmpresa.registrarEmpresas(this.empresa,this.empresa.id);
+    console.log(this.empresa);
   }
   async cargar(){
     let loading= await this.cargarCtrl.create({

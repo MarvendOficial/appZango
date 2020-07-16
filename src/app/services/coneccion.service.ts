@@ -9,10 +9,10 @@ export class ConeccionService {
   constructor(private grupoZango: AngularFireDatabase) { 
 
   }
-  registrarEmpresas(empresa={}){
-    return this.grupoZango.database.ref('grupoZangoApp/emmpresa').push(empresa);
+  registrarEmpresas(empresa={}, id: any){
+    return this.grupoZango.database.ref(`grupoZangoApp/empresa/${id}`).push(empresa);
   }
   obtenerEmpresas(){
-    return this.grupoZango.list('grupoZangoApp/emmpresa').valueChanges();
+    return this.grupoZango.list('grupoZangoApp/empresa').valueChanges();
   }
 }
