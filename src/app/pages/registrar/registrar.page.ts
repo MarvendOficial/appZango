@@ -23,7 +23,7 @@ export class RegistrarPage implements OnInit {
   ngOnInit() {
   }
   registrar() {
-    this.registrarEmpresa.registrarEmpresas(this.empresa)
+    this.registrarEmpresa.registrarEmpresas(this.empresa,this.empresa.id);
     console.log(this.empresa);
   }
 
