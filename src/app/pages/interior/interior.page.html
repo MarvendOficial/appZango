@@ -30,8 +30,8 @@
         <ion-col style="padding-top: 3%;">Actividad</ion-col>
       </ion-row>
     </ion-card>
-    <div *ngFor="let in of [].constructor(interior); let i = index">
-      <ion-input placeholder="{{i+1}}"></ion-input>
+    <div *ngFor="let in of interior">
+      <ion-input placeholder="{{in.trampa+1}}"></ion-input>
       <ion-card class="bordeV ct" color="negroZango">
         <ion-row>
 
