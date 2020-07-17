@@ -30,57 +30,59 @@
         <ion-col style="padding-top: 3%;">Actividad</ion-col>
       </ion-row>
     </ion-card>
-    1
-    <ion-card class="bordeV ct" color="negroZango">
-      <ion-row>
+    <div *ngFor="let in of [].constructor(interior); let i = index">
+      <ion-input placeholder="{{i+1}}"></ion-input>
+      <ion-card class="bordeV ct" color="negroZango">
+        <ion-row>
 
-        <ion-col>
-          <ion-row>
-            <ion-col class="bordeV" size="4">
-              <ion-input></ion-input>
-            </ion-col>
-            <ion-col class="bordeV" size="8">
-              <ion-input></ion-input>
-            </ion-col>
-          </ion-row>
-        </ion-col>
+          <ion-col>
+            <ion-row>
+              <ion-col class="bordeV" size="4">
+                <ion-input></ion-input>
+              </ion-col>
+              <ion-col class="bordeV" size="8">
+                <ion-input></ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-col>
 
-        <ion-col class="">
-          <ion-row>
-            <ion-col>
-              <div>
-                <ion-label>CC</ion-label>
-                <ion-checkbox color="success" slot="end"></ion-checkbox>
-              </div>
-              <div>
-                <ion-label>EE</ion-label>
-                <ion-checkbox color="success" slot="end"></ion-checkbox>
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                <ion-label>SC</ion-label>
-                <ion-checkbox color="success" slot="end"></ion-checkbox>
-              </div>
-              <div>
-                <ion-label>ER</ion-label>
-                <ion-checkbox color="success" slot="end"></ion-checkbox>
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                <ion-label>ED</ion-label>
-                <ion-checkbox color="success" slot="end"></ion-checkbox>
-              </div>
-              <div>
-                <ion-label>EB</ion-label>
-                <ion-checkbox color="success" slot="end"></ion-checkbox>
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+          <ion-col class="">
+            <ion-row>
+              <ion-col>
+                <div>
+                  <ion-label>CC</ion-label>
+                  <ion-checkbox color="success" slot="end"></ion-checkbox>
+                </div>
+                <div>
+                  <ion-label>EE</ion-label>
+                  <ion-checkbox color="success" slot="end"></ion-checkbox>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div>
+                  <ion-label>SC</ion-label>
+                  <ion-checkbox color="success" slot="end"></ion-checkbox>
+                </div>
+                <div>
+                  <ion-label>ER</ion-label>
+                  <ion-checkbox color="success" slot="end"></ion-checkbox>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div>
+                  <ion-label>ED</ion-label>
+                  <ion-checkbox color="success" slot="end"></ion-checkbox>
+                </div>
+                <div>
+                  <ion-label>EB</ion-label>
+                  <ion-checkbox color="success" slot="end"></ion-checkbox>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
   </ion-card>
 
   <ion-card color="negroZango" class="ct">

@@ -6,16 +6,15 @@ import { Observable, observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ConeccionService {
-  id:any
-  constructor(private grupoZango: AngularFireDatabase) { 
+  constructor(private grupoZango: AngularFireDatabase) {
   }
-  registrarEmpresas(empresa={}, id: any){
+  registrarEmpresas(empresa = {}, id: any) {
     return this.grupoZango.object(`grupoZangoApp/empresa/${id}`).update(empresa);
   }
-  obtenerEmpresas(){
+  obtenerEmpresas() {
     return this.grupoZango.list('grupoZangoApp/empresa').valueChanges();
   }
-  obtenerId(id: any){
-    return this.grupoZango.object(`grupoZangoApp/empresa/${this.id}`).valueChanges()
+  obtenerId(id: any) {
+    return this.grupoZango.object(`grupoZangoApp/empresa/${id}/noInterior`).valueChanges();
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ConeccionService } from 'src/app/services/coneccion.service';
 
 @Component({
@@ -9,25 +9,28 @@ import { ConeccionService } from 'src/app/services/coneccion.service';
 })
 export class EmpresaPage implements OnInit {
   datos: any;
-  constructor(private router: Router, private empresaService: ConeccionService) {
+  id: any;
+  constructor(private router: Router, private empresaService: ConeccionService, private route: ActivatedRoute) {
     this.empresaService.obtenerEmpresas().subscribe((res) => {
       console.log(res);
       this.datos = res;
       console.log(this.datos);
     });
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
   }
 
   irExteriores() {
-    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/exteriores')
+    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/exteriores/' + this.id);
   }
   irInterior() {
-    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/interior')
+    this.router.navigateByUrl('interior/' + this.id);
   }
   irLamparas() {
-    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/lamparas')
+    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/lamparas/' + this.id);
   }
   irPortada() {
-    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/portada')
+    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/portada/' + this.id);
   }
   ngOnInit() {
   }

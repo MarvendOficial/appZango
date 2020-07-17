@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConeccionService } from 'src/app/services/coneccion.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-analizar',
@@ -8,20 +9,20 @@ import { ConeccionService } from 'src/app/services/coneccion.service';
   styleUrls: ['./analizar.page.scss'],
 })
 export class AnalizarPage implements OnInit {
-datos:any=[];
-  constructor(private router: Router, private empresaService: ConeccionService) { 
-    this.empresaService.obtenerEmpresas().subscribe((res)=>{
-      this.datos=res;
+  datos: any = [];
+  constructor(private router: Router, private empresaService: ConeccionService, private navCtrl: NavController) {
+    this.empresaService.obtenerEmpresas().subscribe((res) => {
+      this.datos = res;
       console.log(this.datos.nombre)
     })
   }
 
-  empresa(){
-    this.router.navigateByUrl('/tabs/tab1/analizar/empresa')
+  empresa(id: number) {
+    // this.navCtrl.navigateForward('/tabs/tab1/analizar/empresa/' + id);
+    this.router.navigateByUrl('empresa/' + id);
   }
-  verEmpresas(){
+  verEmpresas() {
     console.log(this.empresaService.obtenerEmpresas())
-    
   }
 
 

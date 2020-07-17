@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/analizar/analizar.module').then( m => m.AnalizarPageModule)
   },
   {
-    path: 'empresa',
+    path: 'empresa/:id',
     loadChildren: () => import('./pages/empresa/empresa.module').then( m => m.EmpresaPageModule)
   },
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exteriores/exteriores.module').then( m => m.ExterioresPageModule)
   },
   {
-    path: 'interior',
+    path: 'interior/:id',
     loadChildren: () => import('./pages/interior/interior.module').then( m => m.InteriorPageModule)
   },
   {
