@@ -10,14 +10,6 @@
 <ion-content color="negroZango" class="tb">
 
 <ion-card color="negroZango" class="ct">
-  <ion-card style="text-align: center;" color="negroZango" class="bordeV" >
-    <ion-row>
-      <ion-col size="12">
-        Numero del reporte 
-        <ion-input></ion-input>
-      </ion-col>
-    </ion-row>
-  </ion-card>
   <ion-card style="text-align: center;" color="negroZango">
     <ion-row>
       <ion-col>
@@ -29,58 +21,60 @@
       <ion-col style="padding-top: 3%;">Actividad</ion-col>
     </ion-row>
   </ion-card>
-  1
-  <ion-card class="bordeV ct" color="negroZango" >
-    <ion-row>
-
-      <ion-col>
-        <ion-row>
-          <ion-col class="bordeV" size="4">
-            <ion-input></ion-input>
-          </ion-col>
-          <ion-col class="bordeV" size="8">
-            <ion-input></ion-input>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-
-      <ion-col class="">
-        <ion-row>
-          <ion-col>
-            <div>
-              <ion-label>CC</ion-label>
-              <ion-checkbox color="success" slot="end"></ion-checkbox>
-            </div>
-            <div>
-              <ion-label>EE</ion-label>
-              <ion-checkbox color="success" slot="end"></ion-checkbox>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div>
-              <ion-label>SC</ion-label>
-              <ion-checkbox color="success" slot="end"></ion-checkbox>
-            </div>
-            <div>
-              <ion-label>ER</ion-label>
-              <ion-checkbox color="success" slot="end"></ion-checkbox>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div>
-              <ion-label>ED</ion-label>
-              <ion-checkbox color="success" slot="end"></ion-checkbox>
-            </div>
-            <div>
-              <ion-label>EB</ion-label>
-              <ion-checkbox color="success" slot="end"></ion-checkbox>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-
-    </ion-row>
-  </ion-card>
+  <form #f="ngForm">
+    <ion-card class="bordeV ct" color="negroZango" >
+      <ion-row>
+        <ion-col>
+          <ion-row>
+            <ion-col class="bordeV" size="4">
+              <ion-input ngModel name="noAnimal"></ion-input>
+            </ion-col>
+            <ion-col class="bordeV" size="8">
+              <ion-input ngModel name="observacion"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+  
+        <ion-col class="" ngModelGroup="actividad"  >
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-label>CC</ion-label>
+                <ion-checkbox   color="success" slot="end" ngModel  name="cc" checked="false"></ion-checkbox>
+              </div>
+              <div>
+                <ion-label>EE</ion-label>
+                <ion-checkbox color="success" slot="end"></ion-checkbox>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-label>SC</ion-label>
+                <ion-checkbox color="success" slot="end"></ion-checkbox>
+              </div>
+              <div>
+                <ion-label>ER</ion-label>
+                <ion-checkbox color="success" slot="end"></ion-checkbox>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-label>ED</ion-label>
+                <ion-checkbox color="success" slot="end"></ion-checkbox>
+              </div>
+              <div>
+                <ion-label>EB</ion-label>
+                <ion-checkbox color="success" slot="end"></ion-checkbox>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+  
+      </ion-row>
+    </ion-card>
+    <ion-button (click)="prueba(f)">Ver</ion-button>
+  </form>
+  
 </ion-card>
 
 </ion-content>

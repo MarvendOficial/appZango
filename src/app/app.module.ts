@@ -8,10 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {LottieSplashScreen} from '@ionic-native/lottie-splash-screen/ngx'
-import {AngularFireModule} from '@angular/fire';
+import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx'
+import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,13 +32,14 @@ var firebaseConfig = {
     AngularFireAuthModule,
     ReactiveFormsModule,
     RouterModule,
-    CommonModule ,
-    FormsModule,],
+    CommonModule,
+    FormsModule,
+  ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, LottieSplashScreen
   ],
-  bootstrap: [AppComponent] 
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

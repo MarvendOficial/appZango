@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/empresa/empresa.module').then( m => m.EmpresaPageModule)
   },
   {
-    path: 'exteriores',
+    path: 'exteriores/:id',
     loadChildren: () => import('./pages/exteriores/exteriores.module').then( m => m.ExterioresPageModule)
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/interior/interior.module').then( m => m.InteriorPageModule)
   },
   {
-    path: 'lamparas',
+    path: 'lamparas/:id',
     loadChildren: () => import('./pages/lamparas/lamparas.module').then( m => m.LamparasPageModule)
   },
   {

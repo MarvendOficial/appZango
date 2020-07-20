@@ -21,13 +21,13 @@ export class EmpresaPage implements OnInit {
   }
 
   irExteriores() {
-    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/exteriores/' + this.id);
+    this.router.navigateByUrl('exteriores/' + this.id);
   }
   irInterior() {
     this.router.navigateByUrl('interior/' + this.id);
   }
   irLamparas() {
-    this.router.navigateByUrl('/tabs/tab1/analizar/empresa/lamparas/' + this.id);
+    this.router.navigateByUrl('lamparas/' + this.id);
   }
   irPortada() {
     this.router.navigateByUrl('portada/' + this.id);

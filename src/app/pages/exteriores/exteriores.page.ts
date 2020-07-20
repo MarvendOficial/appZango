@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exteriores.page.scss'],
 })
 export class ExterioresPage implements OnInit {
-
+  array:any;
   constructor() { }
 
   ngOnInit() {
   }
-
+  prueba(f){
+    console.log(f.value)
+  }
 }
