@@ -3,7 +3,7 @@ import { ConeccionService } from 'src/app/services/coneccion.service';
 import { NgModule } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-registrar',
@@ -22,9 +22,8 @@ export class RegistrarPage implements OnInit {
     direccion: '',
   };
 
-  constructor(private registrarEmpresa: ConeccionService,
-    private empresaForm: FormBuilder, private cargarCtrl: LoadingController, public alertaCtrl: AlertController,
-    private route: Router) { }
+  constructor(private registrarEmpresa: ConeccionService, private cargarCtrl: LoadingController,
+              public alertaCtrl: AlertController, private route: Router) { }
 
   ngOnInit() {
   }
@@ -33,6 +32,7 @@ export class RegistrarPage implements OnInit {
     console.log(this.empresa);
     this.insertarInterirores(this.empresa.noInterior);
     this.insertarExteriores(this.empresa.noExterior);
+    this.insertarLamparas(this.empresa.noLamparas);
     this.route.navigateByUrl('');
   }
 
@@ -40,10 +40,10 @@ export class RegistrarPage implements OnInit {
   insertarInterirores(cantidad) {
 
     for (let index = 1; index < cantidad + 1; index++) {
-      let trampa = {
+      const trampa = {
         trampa: index,
-        noAnimal: "",
-        observacion: "",
+        noAnimal: null,
+        observacion: '',
         actividad: {
           cc: false,
           eb: false,
@@ -52,16 +52,16 @@ export class RegistrarPage implements OnInit {
           er: false,
           sc: false
         }
-      }
+      };
       this.registrarEmpresa.insertarTrampasInterior(trampa, index, this.empresa.id);
     }
   }
   insertarExteriores(cantidad) {
     for (let index = 1; index < cantidad + 1; index++) {
-      let trampa = {
+      const trampa = {
         trampa: index,
-        noAnimal: "",
-        observacion: "",
+        noAnimal: null,
+        observacion: '',
         actividad: {
           cc: false,
           eb: false,
@@ -70,26 +70,44 @@ export class RegistrarPage implements OnInit {
           er: false,
           sc: false
         }
-      }
+      };
       this.registrarEmpresa.insertarTrampasExteriores(trampa, index, this.empresa.id);
     }
   }
-  insertarLamparas() {
-
+  insertarLamparas(cantidad) {
+    for (let index = 1; index < cantidad + 1; index++) {
+      const lampara = {
+        lampara: index,
+        noAnimal2: null,
+        noAnimal: null,
+        observacion: '',
+        observacion2: '',
+        localizacion: '',
+        actividad: {
+          ci: false,
+          cg: false,
+          si: false,
+          sc: false,
+          td: false,
+          tb: false
+        }
+      };
+      this.registrarEmpresa.insertarLamparas(lampara, index, this.empresa.id);
+    }
   }
 
   async cargar() {
-    let loading = await this.cargarCtrl.create({
+    const loading = await this.cargarCtrl.create({
       message: 'Cargando...'
     });
     loading.present();
     setTimeout(() => {
       loading.dismiss();
 
-    }, 2000)
+    }, 2000);
   }
   async alerta() {
-    let alert = await this.alertaCtrl.create({
+    const alert = await this.alertaCtrl.create({
       header: 'Registrado',
       message: 'Se ha registrado con éxito',
       buttons: [
@@ -103,7 +121,7 @@ export class RegistrarPage implements OnInit {
     });
     setTimeout(() => {
       alert.present();
-    }, 2000)
+    }, 2000);
     alert.dismiss();
   }
 
@@ -111,12 +129,12 @@ export class RegistrarPage implements OnInit {
     this.empresa = {
       id: '',
       nombre: '',
-      noInterior: "",
-      noExterior: "",
-      noLamparas: "",
-      contacto: "",
-      telefono: "",
-      direccion: "",
+      noInterior: '',
+      noExterior: '',
+      noLamparas: '',
+      contacto: '',
+      telefono: '',
+      direccion: '',
     };
   }
 }

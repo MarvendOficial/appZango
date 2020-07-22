@@ -27,13 +27,12 @@ export class ConeccionService {
     return this.grupoZango.list(`grupoZangoApp/empresa/${id}/reportes/interior`).valueChanges();
   }
   obtenerExteriores(id: any) {
-    return this.grupoZango.list(`grupoZangoApp/empresa/${id}/reportes/interior`).valueChanges();
+    return this.grupoZango.list(`grupoZangoApp/empresa/${id}/reportes/exteriores`).valueChanges();
   }
-  guardarTrampa(idEmpresa,trampa, id) {
-    return this.grupoZango.object(`grupoZangoApp/empresa/${idEmpresa}/reportes/interior/${id}`).update(trampa);
+  obtenerLamparas(id:any){
+    return this.grupoZango.list(`grupoZangoApp/empresa/${id}/reportes/lamparas`).valueChanges();
   }
-  actualizarActividad(idEmpresa, status, idTrampa, nombre) {
-    return this.grupoZango.object(`grupoZangoApp/empresa/${idEmpresa}/reportes/interior/${idTrampa}/actividad/${nombre}`).set
-      (status);
+  guardarTrampa(idEmpresa, trampa, id, reporteNombre) {
+    return this.grupoZango.object(`grupoZangoApp/empresa/${idEmpresa}/reportes/${reporteNombre}/${id}`).update(trampa);
   }
 }

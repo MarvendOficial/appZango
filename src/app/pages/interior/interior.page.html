@@ -7,13 +7,6 @@
   </ion-toolbar>
 
 </ion-header>
-<!-- 
-<div *ngIf="datos">
-  si hay datos
-</div>
-<div *ngIf="!datos">
-  no hay datos
-</div> -->
 <ion-content color="negroZango" class="tb margen">
   <ion-card color="negroZango" class="ct">
     <ion-card style="text-align: center;" color="negroZango">
@@ -27,6 +20,7 @@
         <ion-col style="padding-top: 3%;">Actividad</ion-col>
       </ion-row>
     </ion-card>
+    
     <form #f="ngForm">
       <div *ngFor="let in of interior">
         <div *ngIf="in.observacion.length > 0 ">
@@ -91,7 +85,6 @@
           <ion-label>Trampa {{in.trampa}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
-
               <ion-col>
                 <ion-row>
                   <ion-col class="bordeV" size="4">
@@ -107,40 +100,40 @@
                   <ion-col>
                     
                     <div>
+                      
                       <ion-label>CC</ion-label>
-                      <input class="check" type="checkbox" ngModel name="cc">
-                      <!-- <ion-checkbox color="success" [(ngModel)]="cc[in.trampa]" slot="end" name="cc"></ion-checkbox> -->
+                      <ion-checkbox color="success" (ionChange)="check($event,'cc')" slot="end" name="cc"></ion-checkbox>
                     </div>
                     <div>
                       <ion-label>EE</ion-label>
-                      <ion-checkbox color="success" [(ngModel)]="ee" slot="end" name="ee"></ion-checkbox>
+                      <ion-checkbox color="success" (ionChange)="check($event,'ee')"   name="ee" ></ion-checkbox>
                     </div>
                   </ion-col>
                   <ion-col>
                     <div>
                       <ion-label>SC</ion-label>
-                      <ion-checkbox color="success" [(ngModel)]="sc" slot="end" name="sc"></ion-checkbox>
+                      <ion-checkbox (ionChange)="check($event,'sc')"  color="success" slot="end" name="sc"></ion-checkbox>
                     </div>
                     <div>
                       <ion-label>ER</ion-label>
-                      <ion-checkbox color="success" [(ngModel)]="er" slot="end" name="er"></ion-checkbox>
+                      <ion-checkbox  (ionChange)="check($event,'er')"  color="success" slot="end" name="er"></ion-checkbox>
                     </div>
                   </ion-col>
                   <ion-col>
                     <div>
                       <ion-label>ED</ion-label>
-                      <ion-checkbox color="success" [(ngModel)]="ed"slot="end" name="ed"></ion-checkbox>
+                      <ion-checkbox (ionChange)="check($event,'ed')"  color="success" slot="end" name="ed"></ion-checkbox>
                     </div>
                     <div>
                       <ion-label>EB</ion-label>
-                      <ion-checkbox color="success" [(ngModel)]="eb" slot="end" name="eb"></ion-checkbox>
+                      <ion-checkbox (ionChange)="check($event,'eb')"  color="success" slot="end" name="eb"></ion-checkbox>
                     </div>
                   </ion-col>
                 </ion-row>
               </ion-col>
             </ion-row>
           </ion-card>
-          <ion-button color="verdeZango" expand="block" (click)="prueba(f,in.trampa)">Create</ion-button>
+          <ion-button color="verdeZango" expand="block" (click)="guardarTrampa(f,in.trampa)">Create</ion-button>
         </div>
 
       </div>
@@ -159,17 +152,3 @@
     </ion-col>
   </ion-row>
 </ion-footer>
-<!-- <ion-tabs padding>
-  <ion-row>
-    <ion-col>
-      <ion-button color="verdeZango">
-        Guardar
-      </ion-button>
-    </ion-col>
-    <ion-col>
-      <ion-button color="verdeZango">
-        Generar reporte
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-tabs> -->

@@ -8,102 +8,197 @@
 </ion-header>
 
 <ion-content color="negroZango" class="tb">
-<ion-card style="text-align: center;" color="negroZango">
-  <ion-row>
-    <ion-col>
-      <ion-row>
-        <ion-col size="3">#</ion-col>
-        <ion-col size="9">Observacion</ion-col>
-      </ion-row>
-    </ion-col>
-    <ion-col style="padding-top: 3%;">Actividad</ion-col>
-  </ion-row>
-</ion-card>
-<ion-card color="negroZango" class="ct">
-  <ion-card style="text-align: center;" color="negroZango" class="bordeV" >
-    <ion-row>
-      <ion-col size="12">
-        Numero del reporte 
-        <ion-input></ion-input>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-  <ion-card style="text-align: center;" color="negroZango">
-    <ion-row>
-      <ion-col>
-        <ion-row>
-          <ion-col size="3">#</ion-col>
-          <ion-col size="9">Observacion</ion-col>
-        </ion-row>
-      </ion-col>
-      <ion-col style="padding-top: 3%;">Actividad</ion-col>
-    </ion-row>
-  </ion-card>
-  1
-  <ion-card class="bordeV ct" color="negroZango" >
-    <ion-row>
+  <ion-card color="negroZango" class="ct">
 
-      <ion-col>
-        <ion-row>
-          <ion-col class="bordeV" size="4">
-            <ion-input></ion-input>
-          </ion-col>
-          <ion-col class="bordeV" size="8">
-            <ion-input></ion-input>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-      
+    <ion-card style="text-align: center;" color="negroZango">
       <ion-row>
         <ion-col>
           <ion-row>
-            <ion-col class="bordeV" size="4">
-              <ion-input></ion-input>
-            </ion-col>
-            <ion-col class="bordeV" size="8">
-              <ion-input></ion-input>
-            </ion-col>
+            <ion-col size="3">#</ion-col>
+            <ion-col size="9">Observacion</ion-col>
           </ion-row>
         </ion-col>
+        <ion-col style="padding-top: 3%;">Actividad</ion-col>
       </ion-row>
+    </ion-card>
+    <form #f="ngForm">
+      <div *ngFor="let l of lamparas">
+        <div *ngIf="l.observacion.length > 0 ">
+          <ion-label>lampara {{l.lampara}}</ion-label>
+          <ion-card class="bordeV ct" color="negroZango">
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col class="bordeV">
+                    <ion-input  readonly>{{l.localizacion}}</ion-input>
+                  </ion-col>
 
-      <ion-col class="">
-        <ion-row>
-          <ion-col>
-            <div>
-              <ion-label>CI</ion-label>
-              <ion-checkbox  class="s" color="success" slot="end"></ion-checkbox>
-            </div>
-            <div>
-              <ion-label>CG</ion-label>
-              <ion-checkbox class="s" color="success" slot="end"></ion-checkbox>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div>
-              <ion-label>SI</ion-label>
-              <ion-checkbox class="s" color="success" slot="end"></ion-checkbox>
-            </div>
-            <div>
-              <ion-label>SC</ion-label>
-              <ion-checkbox class="s" color="success" slot="end"></ion-checkbox>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div>
-              <ion-label>TD</ion-label>
-              <ion-checkbox  class="s" color="success" slot="end"></ion-checkbox>
-            </div>
-            <div>
-              <ion-label>TB</ion-label>
-              <ion-checkbox  class="s" color="success" slot="end"></ion-checkbox>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col class="bordeV" size="4">
+                    <ion-input readonly>{{l.noAnimal}}</ion-input>
+                  </ion-col>
+                  <ion-col class="bordeV" size="8" >
+                    <ion-input readonly>{{l.observacion}}</ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
 
-    </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-row>
+                    <ion-col class="bordeV" size="4" >
+                      <ion-input  readonly>{{l.noAnimal2}}</ion-input>
+                    </ion-col>
+                    <ion-col class="bordeV" size="8" >
+                      <ion-input  readonly>{{l.observacion2}}</ion-input>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+
+              <ion-col class="">
+                <ion-row>
+                  <ion-col>
+                    <div>
+                      <ion-label>CI</ion-label>
+                      <ion-checkbox disabled checked="{{l.actividad.ci}}" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                    <div>
+                      <ion-label>CG</ion-label>
+                      <ion-checkbox disabled checked="{{l.actividad.cg}}" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                  </ion-col>
+                  <ion-col>
+                    <div>
+                      <ion-label>SI</ion-label>
+                      <ion-checkbox disabled checked="{{l.actividad.si}}" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                    <div>
+                      <ion-label>SC</ion-label>
+                      <ion-checkbox disabled checked="{{l.actividad.sc}}" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                  </ion-col>
+                  <ion-col>
+                    <div>
+                      <ion-label>TD</ion-label>
+                      <ion-checkbox disabled checked="{{l.actividad.td}}" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                    <div>
+                      <ion-label>TB</ion-label>
+                      <ion-checkbox disabled checked="{{l.actividad.tb}}" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+
+            </ion-row>
+          </ion-card>
+        </div>
+        <div *ngIf="l.observacion.length === 0 ">
+          <ion-label>lampara {{l.lampara}}</ion-label>
+          <ion-card class="bordeV ct" color="negroZango">
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col class="bordeV">
+                    <ion-input placeholder="localizacion" name="localizacion" ngModel></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col class="bordeV" size="4">
+                    <ion-input  name="noAnimal" ngModel></ion-input>
+                  </ion-col>
+                  <ion-col class="bordeV" size="8" >
+                    <ion-input name="observacion" ngModel></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+
+              <ion-row>
+                <ion-col>
+                  <ion-row>
+                    <ion-col class="bordeV" size="4" >
+                      <ion-input name="noAnimal2" ngModel></ion-input>
+                    </ion-col>
+                    <ion-col class="bordeV" size="8" >
+                      <ion-input name="observacion2" ngModel></ion-input>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+
+              <ion-col class="">
+                <ion-row>
+                  <ion-col>
+                    <div>
+                      <ion-label>CI</ion-label>
+                      <ion-checkbox (ionChange)="check($event,'ci')" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                    <div>
+                      <ion-label>CG</ion-label>
+                      <ion-checkbox (ionChange)="check($event,'cg')" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                  </ion-col>
+                  <ion-col>
+                    <div>
+                      <ion-label>SI</ion-label>
+                      <ion-checkbox (ionChange)="check($event,'si')" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                    <div>
+                      <ion-label>SC</ion-label>
+                      <ion-checkbox (ionChange)="check($event,'sc')" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                  </ion-col>
+                  <ion-col>
+                    <div>
+                      <ion-label>TD</ion-label>
+                      <ion-checkbox (ionChange)="check($event,'td')" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                    <div>
+                      <ion-label>TB</ion-label>
+                      <ion-checkbox (ionChange)="check($event,'tb')" class="s" color="success" slot="end">
+                      </ion-checkbox>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+
+            </ion-row>
+          </ion-card>
+          <ion-button color="verdeZango" expand="block" (click)="guardarTrampa(f,l.lampara)">guardar</ion-button>
+        </div>
+      </div>
+    </form>
+
   </ion-card>
-</ion-card>
 
 </ion-content>
+<ion-footer>
+  <ion-row style="text-align: center;">
+    <ion-col>
+      <ion-button expand="full" color="verdeZango">
+        Generar reporte
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

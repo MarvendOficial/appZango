@@ -28,16 +28,4 @@
     </ion-button>
   </div>
 
-  <div>
-    <form #f="ngForm"  (ngSubmit)="prueba(f)" >
-      
-      <div *ngFor="let d of datos" >
-        
-        <ion-input type="text" ngModel name="{{'nombre'+d.nombre}}"></ion-input>
-        <ion-input ngModel name="{{'apelid'+d.nombre}}"></ion-input>
-      </div>
-     
-      <ion-button expand="block" type="submit">Create account</ion-button>
-    </form>
-  </div>
 </ion-content>

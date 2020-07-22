@@ -10,54 +10,58 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class InteriorPage implements OnInit {
   interior: any;
-  datos: any;
   id: any;
-  t = {};
-  trampas = {
-    trampa: null,
-    noAnimal: null,
-    observacion: '',
-    actividad: {
-      cc: false,
-      eb: false,
-      ed: false,
-      ee: false,
-      er: false,
-      sc: false
-    }
-  };
+  cc: boolean = false;
+  eb: boolean = false;
+  ed: boolean = false;
+  ee: boolean = false;
+  er: boolean = false;
+  sc: boolean = false;
+
   constructor(private route: ActivatedRoute, private empresaService: ConeccionService, private empresaForm: FormBuilder) {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.datos = true;
     this.empresaService.obtenerId(this.id).subscribe((res) => {
       this.interior = res;
-      if (res.length < 0) {
-        this.datos = false;
-      } else {
-        this.datos = true;
-      }
-      console.log(this.interior.length);
     });
   }
 
   ngOnInit() {
   }
-  prueba(f, id) {
-    // this.empresaService.update(f.value,this.id);
-    console.log(f.value, id);
-  }
-  guardarTrampa(f,id){
-    this.empresaService.guardarTrampa(this.id,f.value, id);
-  }
-  updateChecked(e, idTrampa, nombre) {
-
-    let status;
-    if (e.detail.checked === true) {
-      status = true;
-    } else {
-      status = false;
+  guardarTrampa(f, id) {
+    const trampa = {
+      noAnimal: f.value.noAnimal,
+      observacion: f.value.observacion,
+      actividad: {
+        cc: this.cc,
+        eb: this.eb,
+        ed: this.ed,
+        ee: this.ee,
+        er: this.er,
+        sc: this.sc
+      }
     }
-    console.log(this.id,status, idTrampa, nombre);
-    this.empresaService.actualizarActividad(this.id,status, idTrampa, nombre);
+    this.empresaService.guardarTrampa(this.id, trampa, id, 'interior');
+    this.cc = false;
+    this.eb = false;
+    this.ed = false;
+    this.ee = false;
+    this.er = false;
+    this.sc = false;
+  }
+  check(e, name) {
+    const checked = e.detail.checked;
+    if (name === 'cc') {
+      this.cc = checked;
+    } else if (name === 'ee') {
+      this.ee = checked;
+    } else if (name === 'eb') {
+      this.eb = checked;
+    } else if (name === 'ed') {
+      this.ed = checked;
+    } else if (name === 'er') {
+      this.er = checked;
+    } else if (name === 'sc') {
+      this.sc = checked;
+    }
   }
 }
