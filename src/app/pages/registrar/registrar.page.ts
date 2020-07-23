@@ -39,10 +39,10 @@ export class RegistrarPage implements OnInit {
 
   insertarInterirores(cantidad) {
 
-    for (let index = 1; index < cantidad + 1; index++) {
+    for (let index = 0; index < cantidad ; index++) {
       const trampa = {
         trampa: index,
-        noAnimal: null,
+        noAnimal: 0,
         observacion: '',
         actividad: {
           cc: false,
@@ -57,10 +57,10 @@ export class RegistrarPage implements OnInit {
     }
   }
   insertarExteriores(cantidad) {
-    for (let index = 1; index < cantidad + 1; index++) {
+    for (let index = 0; index < cantidad ; index++) {
       const trampa = {
         trampa: index,
-        noAnimal: null,
+        noAnimal: 0,
         observacion: '',
         actividad: {
           cc: false,
@@ -75,11 +75,11 @@ export class RegistrarPage implements OnInit {
     }
   }
   insertarLamparas(cantidad) {
-    for (let index = 1; index < cantidad + 1; index++) {
+    for (let index = 0; index < cantidad; index++) {
       const lampara = {
         lampara: index,
-        noAnimal2: null,
-        noAnimal: null,
+        noAnimal2: 0,
+        noAnimal: 0,
         observacion: '',
         observacion2: '',
         localizacion: '',

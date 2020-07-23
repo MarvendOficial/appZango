@@ -193,12 +193,17 @@
   </ion-card>
 
 </ion-content>
-<ion-footer>
-  <ion-row style="text-align: center;">
-    <ion-col>
-      <ion-button expand="full" color="verdeZango">
-        Generar reporte
-      </ion-button>
-    </ion-col>
-  </ion-row>
+<ion-footer *ngIf="datos === 0">
+  <form #subir="ngForm">
+    <ion-row style="text-align: center;">
+      <ion-col size="6">
+        <ion-input ngModel name="reporte" placeholder="Numero de reporte"></ion-input>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="full" color="verdeZango" (click)="subirCambios(subir)">
+          Guardar Datos del Reporte
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-footer>

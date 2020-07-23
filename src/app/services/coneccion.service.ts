@@ -26,6 +26,9 @@ export class ConeccionService {
   obtenerId(id: any) {
     return this.grupoZango.list(`grupoZangoApp/empresa/${id}/reportes/interior`).valueChanges();
   }
+  obtenerObjectoPdf(id: any, nombreReport) {
+    return this.grupoZango.object(`grupoZangoApp/empresa/${id}/reportes/${nombreReport}`).valueChanges();
+  }
   obtenerExteriores(id: any) {
     return this.grupoZango.list(`grupoZangoApp/empresa/${id}/reportes/exteriores`).valueChanges();
   }
@@ -34,5 +37,18 @@ export class ConeccionService {
   }
   guardarTrampa(idEmpresa, trampa, id, reporteNombre) {
     return this.grupoZango.object(`grupoZangoApp/empresa/${idEmpresa}/reportes/${reporteNombre}/${id}`).update(trampa);
+  }
+  guardarReportePdf(idEmpresa,idReportePdf,reporteNombre,datos){
+    this.grupoZango.database.ref(`grupoZangoApp/empresa/${idEmpresa}/reportesPdf/${idReportePdf}/id`).set(idReportePdf);
+    return this.grupoZango.object(`grupoZangoApp/empresa/${idEmpresa}/reportesPdf/${idReportePdf}/${reporteNombre}`).update(datos);
+  }
+  prueba() {
+    return this.grupoZango.list('grupoZangoApp/empresa/12/reportes/interior').valueChanges();
+  }
+  prueba2() {
+    return this.grupoZango.list('grupoZangoApp/empresa/12/reportes/exteriores').valueChanges();
+  }
+  prueba3(){
+    return this.grupoZango.list('grupoZangoApp/empresa/12/reportes/lamparas').valueChanges();
   }
 }

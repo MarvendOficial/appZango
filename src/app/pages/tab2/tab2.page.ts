@@ -22,11 +22,11 @@ export class Tab2Page implements OnInit {
       type: 'bar',
       data: {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
-  datasets: [{
-    label: 'Consumo de Trampas Interiores',
-    data: [2, 0, 5, 11, 0, 3, 0, 1],
-    backgroundColor: 'rgba(0,187,100)'
-  }]
+        datasets: [{
+          label: 'Consumo de Trampas Interiores',
+          data: [2, 0, 5, 11, 0, 3, 0, 1],
+          backgroundColor: 'rgba(0,187,100)'
+        }]
       }
     });
   }
@@ -36,11 +36,11 @@ export class Tab2Page implements OnInit {
       type: 'bar',
       data: {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
-  datasets: [{
-    label: 'Consumo de Trampas Exteriores',
-    data: [0, 100, 50, 0, 100, 50, 0, 100],
-    backgroundColor: 'rgba(0,187,100)'
-  }]
+        datasets: [{
+          label: 'Consumo de Trampas Exteriores',
+          data: [0, 100, 50, 0, 100, 50, 0, 100],
+          backgroundColor: 'rgba(0,187,100)'
+        }]
       }
     });
   }

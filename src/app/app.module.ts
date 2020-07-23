@@ -14,15 +14,17 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 var firebaseConfig = {
-  apiKey: "AIzaSyAz1QvzLwKdLHTipHY2bQ7i_OQdoVgMeAg",
-  authDomain: "webapp-45ab1.firebaseapp.com",
-  databaseURL: "https://webapp-45ab1.firebaseio.com",
-  projectId: "webapp-45ab1",
-  storageBucket: "webapp-45ab1.appspot.com",
-  messagingSenderId: "935596321695",
-  appId: "1:935596321695:web:2c78f33b8096d767eaebaa"
+  apiKey: "AIzaSyDe3_rPCSzJNik5HWmpGiStnwCy1nJKK2k",
+  authDomain: "grupozango.firebaseapp.com",
+  databaseURL: "https://grupozango.firebaseio.com",
+  projectId: "grupozango",
+  storageBucket: "grupozango.appspot.com",
+  messagingSenderId: "585784857681",
+  appId: "1:585784857681:web:40d824eff15406c8f4d470",
+  measurementId: "G-60Z64F4SME"
 };
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +40,7 @@ var firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, LottieSplashScreen
   ],
   bootstrap: [AppComponent]

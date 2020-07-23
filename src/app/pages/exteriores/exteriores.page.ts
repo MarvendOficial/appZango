@@ -11,18 +11,29 @@ import { FormBuilder } from '@angular/forms';
 export class ExterioresPage implements OnInit {
   exterior: any;
   id: any;
+  datos: number;
   cc = false;
   eb = false;
   ed = false;
   ee = false;
   er = false;
   sc = false;
-  
+
   constructor(private route: ActivatedRoute, private empresaService: ConeccionService, private empresaForm: FormBuilder) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.empresaService.obtenerExteriores(this.id).subscribe((res) => {
       this.exterior = res;
       console.log(this.exterior);
+      let acu1 = 0;
+      let acu2 = 0;
+      for (let r of this.exterior) {
+        if (r.observacion.length > 0) {
+          acu1 = acu1 + 1;
+        } else {
+          acu2 = acu2 + 1;
+        }
+      }
+      this.datos = acu2;
     });
   }
 
@@ -64,6 +75,30 @@ export class ExterioresPage implements OnInit {
       this.er = checked;
     } else if (name === 'sc') {
       this.sc = checked;
+    }
+  }
+  subirCambios(f) {
+    console.log(this.exterior);
+    this.empresaService.guardarReportePdf(this.id, f.value.reporte, 'exterior', this.exterior);
+    this.insertarExteriores(this.exterior.length);
+    // console.log(this.interior.length);
+  }
+  insertarExteriores(cantidad) {
+    for (let index = 0; index < cantidad; index++) {
+      const trampa = {
+        trampa: index,
+        noAnimal: 0,
+        observacion: '',
+        actividad: {
+          cc: false,
+          eb: false,
+          ed: false,
+          ee: false,
+          er: false,
+          sc: false
+        }
+      };
+      this.empresaService.insertarTrampasExteriores(trampa, index, this.id);
     }
   }
 }

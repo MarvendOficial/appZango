@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConeccionService } from 'src/app/services/coneccion.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
+import { TranslationWidth } from '@angular/common';
 
 @Component({
   selector: 'app-interior',
@@ -9,23 +11,35 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./interior.page.scss'],
 })
 export class InteriorPage implements OnInit {
-  interior: any;
+  interior = [];
   id: any;
-  cc: boolean = false;
-  eb: boolean = false;
-  ed: boolean = false;
-  ee: boolean = false;
-  er: boolean = false;
-  sc: boolean = false;
+  datos: number;
+  cc = false;
+  eb = false;
+  ed = false;
+  ee = false;
+  er = false;
+  sc = false;
 
   constructor(private route: ActivatedRoute, private empresaService: ConeccionService, private empresaForm: FormBuilder) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.empresaService.obtenerId(this.id).subscribe((res) => {
       this.interior = res;
+      let acu1 = 0;
+      let acu2 = 0;
+      for (let r of this.interior) {
+        if (r.observacion.length > 0) {
+          acu1 = acu1 + 1;
+        } else {
+          acu2 = acu2 + 1;
+        }
+      }
+      this.datos = acu2;
     });
   }
 
   ngOnInit() {
+
   }
   guardarTrampa(f, id) {
     const trampa = {
@@ -64,4 +78,30 @@ export class InteriorPage implements OnInit {
       this.sc = checked;
     }
   }
+  subirCambios(f) {
+    console.log(this.interior);
+    this.empresaService.guardarReportePdf(this.id, f.value.reporte, 'interior', this.interior);
+    this.insertarInterirores(this.interior.length);
+    // console.log(this.interior.length);
+  }
+  insertarInterirores(cantidad) {
+
+    for (let index = 0; index < cantidad; index++) {
+      const trampa = {
+        trampa: index,
+        noAnimal: 0,
+        observacion: '',
+        actividad: {
+          cc: false,
+          eb: false,
+          ed: false,
+          ee: false,
+          er: false,
+          sc: false
+        }
+      };
+      this.empresaService.insertarTrampasInterior(trampa, index, this.id);
+    }
+  }
+  
 }
