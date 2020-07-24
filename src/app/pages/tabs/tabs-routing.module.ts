@@ -37,6 +37,9 @@ const routes: Routes = [
       },
       {
         path: 'tab1/analizar/empresa/portada', loadChildren: '../portada/portada.module#PortadaPageModule'
+      },
+      {
+        path: 'tab3/reportes', loadChildren: '../reportes/reportes.module#ReportesPageModule'
       }
     ]
   },

@@ -7,7 +7,7 @@
 <ion-content color="negroZango" class="ct">
 
   <div class="empresas" *ngFor="let d of datos">
-    <ion-button color="verdeZango">
+    <ion-button (click)="irReportes()" color="verdeZango">
       <div class="text">
         {{d.nombre}}
       </div>

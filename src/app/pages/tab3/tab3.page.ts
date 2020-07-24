@@ -49,6 +49,11 @@ export class Tab3Page implements OnInit {
       console.log(this.prueba3);
     });
   }
+
+  
+  irReportes() {
+    this.router.navigateByUrl('/tabs/tab3/reportes')
+  }
   ngOnInit() {
   }
   horizontal() {
