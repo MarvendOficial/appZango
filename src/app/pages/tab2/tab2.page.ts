@@ -21,10 +21,10 @@ export class Tab2Page implements OnInit {
     this.bars = new Chart(this.barChart.nativeElement, {
       type: 'bar',
       data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8"], //nuemros de trampas
         datasets: [{
           label: 'Consumo de Trampas Interiores',
-          data: [2, 0, 5, 11, 0, 3, 0, 1],
+          data: [2, 0, 5, 11, 0, 3, 0, 1], //numero de animales
           backgroundColor: 'rgba(0,187,100)'
         }]
       }
@@ -35,10 +35,10 @@ export class Tab2Page implements OnInit {
     this.bars2 = new Chart(this.barChart2.nativeElement, {
       type: 'bar',
       data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8"],//nuemros de trampas
         datasets: [{
           label: 'Consumo de Trampas Exteriores',
-          data: [0, 100, 50, 0, 100, 50, 0, 100],
+          data: [0, 100, 50, 0, 100, 50, 0, 100],//numero de animales
           backgroundColor: 'rgba(0,187,100)'
         }]
       }

@@ -1,3 +1,24 @@
+.bordeV {
+    border: solid 1px #00bb64;
+}
+
+.ct {
+    text-align: center;
+}
+
+.tb {
+    color: white;
+}
+
+.bt {
+    padding-top: 5%;
+}
+.check {
+        top: 0;
+        left: 0;
+        height: 17px;
+        width: 17px;
+}
 .empresas{
     margin-top: 20px;
     text-align: center;
@@ -5,7 +26,4 @@
 .empresas ion-button{
     width: 50%;
     margin-top: 10px;
-}
-.text{
-    width: 75%;
 }
