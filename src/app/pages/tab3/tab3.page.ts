@@ -49,10 +49,8 @@ export class Tab3Page implements OnInit {
       console.log(this.prueba3);
     });
   }
-
-  
-  irReportes() {
-    this.router.navigateByUrl('/tabs/tab3/reportes')
+  irReportes(id) {
+    this.router.navigateByUrl('reportes/' + id);
   }
   ngOnInit() {
   }
@@ -76,7 +74,7 @@ export class Tab3Page implements OnInit {
         col_3: { text: 'CANTIDAD', style: 'tableHeader', alignment: 'center' },
         col_4: { text: 'OBSERVACIONES', style: 'tableHeader', alignment: 'center' },
       }
-    }
+    };
     const headers2 = {
       fila_0: {
         col_1: { text: 'ESTACION', style: 'tableHeader', rowSpan: 2, alignment: 'center', margin: [0, 8, 0, 0] },
@@ -89,7 +87,7 @@ export class Tab3Page implements OnInit {
         col_3: { text: 'CANTIDAD', style: 'tableHeader', alignment: 'center' },
         col_4: { text: 'OBSERVACIONES', style: 'tableHeader', alignment: 'center' },
       }
-    }
+    };
     const headers3 = {
       fila_0: {
         col_1: { text: 'TRAMPA #', style: 'tableHeader', rowSpan: 2, alignment: 'center', margin: [0, 8, 0, 0] },
@@ -104,7 +102,7 @@ export class Tab3Page implements OnInit {
         col_4: { text: 'NC', style: 'tableHeader', alignment: 'center' },
         col_5: { text: 'OBSERVACIONES', style: 'tableHeader', alignment: 'center' },
       }
-    }
+    };
     const body3 = [];
     for (var key in headers3) {
       if (headers3.hasOwnProperty(key)) {
@@ -351,122 +349,6 @@ export class Tab3Page implements OnInit {
   }
 
 
-  generatePdf() {
-
-    //   const actividad = [];
-    //   const trampas = [];
-    //   const noAnimales = [];
-    //   const observaciones = [];
-    //   const otro = [];
-    //   const bodys = [];
-    //   const titulos = ['TRAMPA', 'ANIMALES', 'ACTIVIDAD', 'OBSERVACIONES'];
-
-    //   bodys.push(titulos);
-    //   for (let index = 0; index < this.tamaño; index++) {
-    //     let acu = '';
-    //     if (this.prueba[index].actividad.cc === true) {
-    //       acu = acu + ' [CC] ';
-    //     }
-    //     if (this.prueba[index].actividad.ee === true) {
-    //       acu = acu + ' [EE] ';
-    //     }
-    //     if (this.prueba[index].actividad.sc === true) {
-    //       acu = acu + ' [SC] ';
-    //     }
-    //     if (this.prueba[index].actividad.er === true) {
-    //       acu = acu + ' [ER] ';
-    //     }
-    //     if (this.prueba[index].actividad.ed === true) {
-    //       acu = acu + ' [ED] ';
-    //     }
-    //     if (this.prueba[index].actividad.eb === true) {
-    //       acu = acu + ' [EB] ';
-    //     }
-    //     var a = [];
-    //     a.push(acu);
-    //     actividad.push(a);
-    //     var t = [];
-    //     t.push(this.prueba[index].trampa);
-    //     trampas.push(t);
-    //     var n = [];
-    //     n.push(this.prueba[index].noAnimal);
-    //     noAnimales.push(n);
-    //     var o = [];
-    //     o.push(this.prueba[index].observacion);
-    //     observaciones.push(o);
-
-    //   }
-
-    //   otro.push(trampas);
-    //   otro.push(noAnimales);
-    //   otro.push(actividad);
-    //   otro.push(observaciones);
-
-    //   bodys.push(otro);
-    //   console.log(actividad);
-
-    //   const docDefinition = {
-    //     content: [
-    //       {
-    //         table: {
-    //           style: 'tableExample',
-    //           widths: ['*', 'auto'],
-    //           body: [
-    //             ['Situación que guardan las estaciones al momento de la revisión en:', 'EXCEL NOBLEZA NAVE 3'],
-    //             ['DIRECCION TEPANCO DE LOPEZ', 'TEL'],
-    //             [{ text: 'AÑO: ' + new Date().getFullYear(), alignment: 'left' },
-    //             { text: 'FECHA: ' + new Date().getDate() + '/' + new Date().toLocaleDateString(), alignment: 'left' }]
-    //           ]
-    //         }
-
-    //       },
-    //       {
-    //         style: 'tableExample',
-    //         table: {
-    //           widths: ['auto', 'auto', 'auto', '*'],
-    //           body: [titulos,otro]
-    //         }
-
-    //       },
-    //       {
-    //         style: 'tableExample',
-    //         table: {
-    //           widths: ['auto', 'auto', 'auto', '*'],
-    //           body: [
-    //             titulos
-
-    //           ]
-    //         }
-
-    //       }
-    //     ],
-    //     styles: {
-    //       header: {
-    //         fontSize: 18,
-    //         bold: true,
-    //         margin: [0, 0, 0, 10]
-    //       },
-    //       subheader: {
-    //         fontSize: 16,
-    //         bold: true,
-    //         margin: [0, 10, 0, 5]
-    //       },
-    //       tableExample: {
-
-    //         margin: [0, 5, 0, 15]
-    //       },
-    //       tableHeader: {
-    //         bold: true,
-    //         fontSize: 13,
-    //         color: 'black'
-    //       }
-    //     },
-    //   };
-
-    //   this.pdfObj = pdfMake.createPdf(docDefinition);
-
-    //   this.pdfObj.download();
-  }
 
 
 }
