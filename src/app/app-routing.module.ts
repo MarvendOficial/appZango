@@ -30,12 +30,11 @@ const routes: Routes = [
   {
     path: 'portada/:id',
     loadChildren: () => import('./pages/portada/portada.module').then( m => m.PortadaPageModule)
-  },  {
-    path: 'reportes',
+  },
+  {
+    path: 'reportes/:id',
     loadChildren: () => import('./pages/reportes/reportes.module').then( m => m.ReportesPageModule)
   }
-
-
 ];
 
 @NgModule({

@@ -23,7 +23,7 @@
     <form #f="ngForm">
       <div *ngFor="let in of exterior">
         <div *ngIf="in.observacion.length > 0 ">
-          <ion-label>Trampa {{in.trampa}}</ion-label>
+          <ion-label>Trampa {{in.trampa+1}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
               <ion-col>
@@ -80,7 +80,7 @@
           </ion-card>
         </div>
         <div *ngIf="in.observacion.length === 0 ">
-          <ion-label>Trampa {{in.trampa}}</ion-label>
+          <ion-label>Trampa {{in.trampa+1}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
               <ion-col>

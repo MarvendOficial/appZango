@@ -24,7 +24,7 @@
 
     <div *ngFor="let in of interior">
       <div *ngIf="in.observacion.length > 0 ">
-        <ion-label>Trampa {{in.trampa}}</ion-label>
+        <ion-label>Trampa {{in.trampa+1}}</ion-label>
         <ion-card class="bordeV ct" color="negroZango">
           <ion-row>
 
@@ -76,6 +76,13 @@
                     </ion-checkbox>
                   </div>
                 </ion-col>
+                <ion-col>
+                  <div>
+                    <ion-label>SR</ion-label>
+                    <ion-checkbox color="success" disabled checked="{{in.actividad.sr}}" slot="end" name="ed">
+                    </ion-checkbox>
+                  </div>
+                </ion-col>
               </ion-row>
             </ion-col>
           </ion-row>
@@ -83,7 +90,7 @@
       </div>
       <form #f="ngForm">
         <div *ngIf="in.observacion.length === 0 ">
-          <ion-label>Trampa {{in.trampa}}</ion-label>
+          <ion-label>Trampa {{in.trampa+1}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
               <ion-col>
@@ -132,6 +139,14 @@
                     <div>
                       <ion-label>EB</ion-label>
                       <ion-checkbox (ionChange)="check($event,'eb')" color="success" slot="end" name="eb">
+                      </ion-checkbox>
+                    </div>
+                    
+                  </ion-col>
+                  <ion-col>
+                    <div>
+                      <ion-label>SR</ion-label>
+                      <ion-checkbox (ionChange)="check($event,'sr')" color="success" slot="end" name="sr">
                       </ion-checkbox>
                     </div>
                   </ion-col>
