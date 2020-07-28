@@ -148,6 +148,9 @@ export class ReportesPage implements OnInit {
         if (data.actividad.eb === true) {
           acu = acu + ' [EB] ';
         }
+        if (data.actividad.sr === true) {
+          acu = acu + ' [SR] ';
+        }
         console.log(acu);
         row.push(acu);
 
@@ -245,6 +248,147 @@ export class ReportesPage implements OnInit {
       },
       content: [
         {
+          image: 'sampleImage.jpg',
+          width: 180,
+        },
+        {
+          text: ''
+        },
+        {
+          columns:
+            [
+              {
+                table: {
+                  body: [
+                    ['hora salida', 'hora entrada'],
+                    ['12:20', '10:50']
+                  ],
+
+                }
+
+              },
+              {
+                text: 'REPORTE DE SERVICIO'
+
+              },
+              {
+                text: new Date().toDateString(), alignment: 'right'
+
+              },
+            ],
+          margin: 11,
+          alignment: 'center'
+        },
+        {
+          table: {
+            widths: ['*'],
+            body: [
+              [{
+                columns: [
+                  { text: 'CONTACTO:' },
+                  { text: 'TELEFONO:', alignment: 'right' }
+                ]
+
+              }],
+              ['EMPRESA:'],
+              ['DIRECCION:'],
+              ['.'],
+
+            ],
+
+          },
+          margin: [0, 0, 0, 10]
+        },
+
+        {
+          table: {
+            widths: ['*', '*'],
+            body: [
+
+              ['SERVICIOS REALIZADOS', 'AREAS TRATADAS'],
+              [{
+                image: 'sampleImage.jpg',
+                text: [
+                  '[X]supervicion y abasto de trampas\n',
+                  '[ ]Supervisión y abasto de lamparas UV.\n',
+                  '[ ]Supervisión y abasto de estaciones cebaderas.'
+                ],
+                alignment: 'left'
+
+              }, {
+                text: [
+                  'Servicio en interiores y oficinas.\n',
+                  'Servicio en exteriores.\n',
+                  'Servicio en interiores, oficinas y exteriores'
+                ]
+              }],
+              [{
+                text: [
+                  'supervicion y abasto de trampas\n',
+                  'Supervisión y abasto de lamparas UV.\n',
+                  'Supervisión y abasto de estaciones cebaderas.'
+                ]
+
+              }, {
+                text: [
+                  'Servicio en interiores.\n',
+                  'Servicio en exteriores.\n',
+                  'Servicio en interiores y exteriores'
+                ]
+              }],
+              [{
+                text: [
+                  'supervicion y abasto de trampas\n',
+                  'Supervisión y abasto de lamparas UV.\n',
+                  'Supervisión y abasto de estaciones cebaderas.'
+                ]
+
+              }, {
+                text: [
+                  'Servicio en interiores.\n',
+                  'Servicio en exteriores.\n',
+                  'Servicio en interiores y exteriores'
+                ]
+              }]
+            ]
+
+          }
+        },
+        {
+          table: {
+            widths: ['*', 'auto', 'auto', '*'],
+            body: [
+              ['producto utilizado', 'sustancia activa', 'caducidad del frasco', 'equipo de aplicacion'],
+              [
+                {
+                  columns: [
+                    {
+                      text: [
+                        'Biothrine CE',
+                        'Demon 40PH',
+                        'Demand',
+                        'Biflex plus'
+                      ]
+                    },
+                    {
+                      text: [
+                        'Termidor',
+                        'Pirenat',
+                        'Cybor',
+                        'Fulmitrol',
+                        'Biothrine FLOW'
+                        ]
+                    }
+                  ]
+                },
+                { text: '3', alignment: 'center' },
+                { text: 'w' },
+                { text: 'w' }]
+
+            ]
+          }
+        },
+        {
           table: {
             style: 'tableExample',
             widths: ['*', 'auto'],
@@ -264,19 +408,19 @@ export class ReportesPage implements OnInit {
             widths: ['auto', 'auto', 'auto', '*'],
             headerRows: 2,
             // keepWithHeaderRows: 1,
-            body: body
+            body: { body }
           }
         },
-        // {
-        //   table: {
-        //     widths: ['*'],
-        //     body: [
-        //       [
-        //         { text: 'CC= Con Consumo SC= Sin Consumo SR= Sin Roedores ED= Estación Dañada EE= Estación Extraviada ER= Estación Reubicada EB= Estación Bloqueada.' }
-        //       ]
-        //     ]
-        //   }
-        // },
+        {
+          table: {
+            widths: ['*'],
+            body: [
+              [
+                { text: 'CC= Con Consumo SC= Sin Consumo SR= Sin Roedores ED= Estación Dañada EE= Estación Extraviada ER= Estación Reubicada EB= Estación Bloqueada.' }
+              ]
+            ]
+          }
+        },
         {
           style: 'tableExample',
           table: {
