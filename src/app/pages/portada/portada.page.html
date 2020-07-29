@@ -16,7 +16,7 @@
         <ion-row>
           <ion-col size="12">
             Numero del reporte
-            <ion-input name="noReporte" ngModel class="bordeV2"></ion-input>
+            <ion-input name="noReporte" [(ngModel)]="portada.noReporte" class="bordeV2"></ion-input>
           </ion-col>
         </ion-row>
       </ion-card>
@@ -38,12 +38,12 @@
           <ion-row class="ct">
             <ion-col>
               Inicio
-              <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z" ngModel
+              <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z" [(ngModel)]="portada.inicio"
                 name="inicio"></ion-datetime>
             </ion-col>
             <ion-col>
               Termino
-              <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z" ngModel
+              <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z" [(ngModel)]="portada.termino"
                 name="termino"></ion-datetime>
             </ion-col>
           </ion-row>
@@ -54,7 +54,7 @@
 
           <ion-row>
             <ion-col>
-              <ion-input type="date" name="fecha" ngMOdel class="bordeV"></ion-input>
+              <ion-input type="date" name="fecha" [(ngModel)]="portada.fecha" class="bordeV"></ion-input>
             </ion-col>
           </ion-row>
 
@@ -327,7 +327,7 @@
           <ion-col>
             <ion-row class="bordeV ct">
               <ion-col class="t1">
-                <ion-input name="sustanciaActiva" ngModel class="i1 bordeV2"></ion-input>
+                <ion-input name="sustanciaActiva" [(ngModel)]="portada.sustanciaActiva" class="i1 bordeV2"></ion-input>
               </ion-col>
             </ion-row>
           </ion-col>
@@ -335,7 +335,7 @@
           <ion-col>
             <ion-row class="bordeV ct">
               <ion-col class="t1">
-                <ion-input name="caducidadFrasco" ngModel class="i1 bordeV2"></ion-input>
+                <ion-input type="date" name="caducidadFrasco" [(ngModel)]="portada.caducidadFrasco" class="i1 bordeV2"></ion-input>
               </ion-col>
             </ion-row>
           </ion-col>
@@ -451,7 +451,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad1" ngModel class="bordeV2"></ion-input>
+            <ion-input name="cantidad1" [(ngModel)]="portada.cantidad[0]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -483,7 +483,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad2" ngMOdel class="bordeV2"></ion-input>
+            <ion-input name="cantidad2" [(ngModel)]="portada.cantidad[1]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -521,7 +521,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="ingrediente1" ngModel class="bordeV2"></ion-input>
+            <ion-input name="ingrediente1" [(ngModel)]="portada.ingrediente[0]" class="bordeV2"></ion-input>
           </ion-col>
 
           <ion-col class="bordeV">
@@ -544,7 +544,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad3" ngModel class="bordeV2"></ion-input>
+            <ion-input name="cantidad3" [(ngModel)]="portada.cantidad[2]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -584,7 +584,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="ingrediente2" ngModel class="bordeV2"></ion-input>
+            <ion-input name="ingrediente2" [(ngModel)]="portada.ingrediente[1]" class="bordeV2"></ion-input>
           </ion-col>
 
           <ion-col class="bordeV">
@@ -607,7 +607,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad4" ngModel class="bordeV2"></ion-input>
+            <ion-input name="cantidad4" [(ngModel)]="portada.cantidad[3]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -646,7 +646,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="ingrediente3" ngModel class="bordeV2"></ion-input>
+            <ion-input name="ingrediente3" [(ngModel)]="portada.ingrediente[2]" class="bordeV2"></ion-input>
             <ion-row>
               <ion-col size="2">
                 <ion-checkbox [(ngModel)]="portada.check[49]" name="check[49]" color="success"></ion-checkbox>
@@ -677,7 +677,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad5" ngModel class="bordeV2"></ion-input>
+            <ion-input name="cantidad5" [(ngModel)]="portada.cantidad[4]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -716,7 +716,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="ingrediente4" ngModel class="bordeV2"></ion-input>
+            <ion-input name="ingrediente4" [(ngModel)]="portada.ingrediente[3]" class="bordeV2"></ion-input>
           </ion-col>
 
           <ion-col class="bordeV">
@@ -739,7 +739,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad6" ngModel class="bordeV2"></ion-input>
+            <ion-input name="cantidad6" [(ngModel)]="portada.cantidad[5]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -778,7 +778,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="ingrediente5" ngModel class="bordeV2"></ion-input>
+            <ion-input name="ingrediente5" [(ngModel)]="portada.ingrediente[4]" class="bordeV2"></ion-input>
           </ion-col>
 
           <ion-col class="bordeV">
@@ -801,7 +801,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad7" ngModel class="bordeV2"></ion-input>
+            <ion-input name="cantidad7" [(ngModel)]="portada.cantidad[6]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -878,7 +878,7 @@
           </ion-col>
 
           <ion-col class="bordeV">
-            <ion-input name="cantidad8" ngModel class="bordeV2"></ion-input>
+            <ion-input name="cantidad8" [(ngModel)]="portada.cantidad[7]" class="bordeV2"></ion-input>
           </ion-col>
 
         </ion-row>
@@ -890,7 +890,7 @@
           ACTIVIDADES REALIZADAS:
         </ion-col>
         <ion-col size="12">
-          <ion-input name="actividadesRealizadas" ngModel class="bordeV2"></ion-input>
+          <ion-input name="actividadesRealizadas" [(ngModel)]="portada.actividadeRealizadas" class="bordeV2"></ion-input>
         </ion-col>
       </ion-card>
 
@@ -899,7 +899,7 @@
           RECOMENDACIÓN AL CLIENTE:
         </ion-col>
         <ion-col size="12">
-          <ion-input name="recomendacion" ngModel class="bordeV2"></ion-input>
+          <ion-input name="recomendacion" [(ngModel)]="portada.recomendacion" class="bordeV2"></ion-input>
         </ion-col>
       </ion-card>
 
@@ -913,7 +913,7 @@
             RESPONSABLE DE ÁREA
           </ion-col>
           <ion-col>
-            <ion-input class="bordeV2"></ion-input>
+            <ion-input [(ngModel)]="portada.responsable" name="responsable" class="bordeV2"></ion-input>
           </ion-col>
         </ion-col>
         <ion-col size="6">
@@ -921,7 +921,7 @@
             TÉCNICO APLICADOR
           </ion-col>
           <ion-col>
-            <ion-input class="bordeV2"></ion-input>
+            <ion-input [(ngModel)]="portada.tecnico" name="tecnico" class="bordeV2"></ion-input>
           </ion-col>
         </ion-col>
       </ion-row>
@@ -944,7 +944,7 @@
 </ion-content>
 
 <footer>
-  <ion-button (click)="ver(f)">
+  <ion-button (click)="ver()">
     chechar
   </ion-button>
 </footer>

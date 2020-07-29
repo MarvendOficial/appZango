@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ConeccionService } from 'src/app/services/coneccion.service';
 
 
 @Component({
@@ -8,23 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortadaPage implements OnInit {
   portada = {
-    noReporte: 0,
-    inicio: 0,
-    termino : 0,
+    noReporte: null,
+    inicio: Date,
+    termino: Date,
     check: [],
     cantidad: [],
-    ingrediente: []
+    ingrediente: [],
+    fecha: Date,
+    caducidadFrasco: Date,
+    actividadeRealizadas: '',
+    recomendacion: '',
+    sustanciaActiva: '',
+    tecnico: '',
+    responsable: ''
   }
+  id:any;
   // check = [];
-  constructor() { }
+  constructor(private route: ActivatedRoute, private empresaService: ConeccionService) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
     for (let index = 0; index < 70; index++) {
       const array = [];
       this.portada.check.push(array[index] = false);
     }
+    for (let index = 0; index < 4; index++) {
+      const array = [];
+      this.portada.ingrediente.push(array[index] = '');
+
+    }
+    for (let index = 0; index < 8; index++) {
+      const array = [];
+      this.portada.cantidad.push(array[index] = 0);
+
+    }
   }
-  ver(f) {
+  async ver() {
     const element = [];
     // for (let index = 0; index < this.check.length; index++) {
     //   if (this.check[index] === false) {
@@ -33,7 +54,10 @@ export class PortadaPage implements OnInit {
     //     element.push('[X]');
     //   }
     // }
-    console.log(f.value, this.portada, element);
+    console.log(this.portada, element);
   }
+  // ver() {
+  //   this.empresaService.guardarReportePdf(this.id,this.portada.noReporte, 'portada', this.portada);
+  // }
 
 }

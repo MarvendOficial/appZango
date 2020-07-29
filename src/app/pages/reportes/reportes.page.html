@@ -13,7 +13,7 @@
   <div class="empresas" *ngFor="let d of reportes">
     <ion-row>
       <ion-col zise="6">
-        <ion-button (click)="pruebas(d.id)" color="verdeZango"  >
+        <ion-button (click)="serviceVerificar(d.id)" color="verdeZango"  >
           <ion-icon name="reader-outline" slot="start"></ion-icon>
           <div class="text">
             REPORTE {{d.id}}
