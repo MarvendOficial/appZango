@@ -30,7 +30,16 @@ const routes: Routes = [
   {
     path: 'portada/:id',
     loadChildren: () => import('./pages/portada/portada.module').then( m => m.PortadaPageModule)
-  }
+  },
+  {
+    path: 'graficas',
+    loadChildren: () => import('./pages/graficas/graficas.module').then( m => m.GraficasPageModule)
+  },
+  {
+    path: 'graficas/:id',
+    loadChildren: () => import('./pages/graficas/graficas.module').then( m => m.GraficasPageModule)
+  },
+
 
 ];
 

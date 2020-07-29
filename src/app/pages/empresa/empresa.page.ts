@@ -9,6 +9,7 @@ import { ConeccionService } from 'src/app/services/coneccion.service';
 })
 export class EmpresaPage implements OnInit {
   datos: any;
+  nombre: any;
   id: any;
   constructor(private router: Router, private empresaService: ConeccionService, private route: ActivatedRoute) {
     this.empresaService.obtenerEmpresas().subscribe((res) => {
