@@ -8,13 +8,6 @@
 </ion-header>
 
 <ion-content color="negroZango">
-  <!-- <div class="empresas" *ngFor="let d of datos">
-    <ion-button color="verdeZango" (click)="verEmpresas()">
-        {{d.nombre}}
-     
-      <ion-icon name="arrow-forward" slot="end"></ion-icon>
-    </ion-button>
-  </div> -->
   <div class="empresas" *ngFor="let d of datos" (click)="empresa(d.id)">
     <ion-button color="verdeZango">
       <div class="text">
