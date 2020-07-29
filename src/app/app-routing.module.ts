@@ -32,6 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/portada/portada.module').then( m => m.PortadaPageModule)
   },
   {
+<<<<<<< HEAD
     path: 'graficas',
     loadChildren: () => import('./pages/graficas/graficas.module').then( m => m.GraficasPageModule)
   },
@@ -41,6 +42,11 @@ const routes: Routes = [
   },
 
 
+=======
+    path: 'reportes/:id',
+    loadChildren: () => import('./pages/reportes/reportes.module').then( m => m.ReportesPageModule)
+  }
+>>>>>>> 0e11ea8151bc889038218908237324dec0c5f96b
 ];
 
 @NgModule({

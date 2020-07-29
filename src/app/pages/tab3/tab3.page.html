@@ -1,37 +1,21 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title size="small">REPORTES</ion-title>
+  <ion-toolbar color="negroZango" class="bordeV tb ct">
+    <ion-title size="small">Ver Reportes</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- <div class="empresas">
-    <ion-button color="dark">
-      <div class="text">
-        Tehuacán
-      </div>
-      <ion-icon name="arrow-forward" slot="end" color="primary"></ion-icon>
-    </ion-button>
-    <ion-button color="dark">
-      <div class="text">
-        Ajalpan
-      </div>
-      <ion-icon name="arrow-forward" slot="end" color="primary"></ion-icon>
-    </ion-button>
-  </div> -->
+<ion-content color="negroZango" class="ct">
+
   <div class="empresas" *ngFor="let d of datos">
-    <ion-button color="dark">
+    <ion-button (click)="irReportes(d.id)" color="verdeZango">
+      <ion-icon name="reader-outline" slot="start"></ion-icon>
       <div class="text">
         {{d.nombre}}
       </div>
-      <ion-icon name="arrow-forward" slot="end"  color="primary"></ion-icon>
+      <ion-icon name="arrow-forward" slot="end"></ion-icon>
     </ion-button>
   </div>
-  <ion-button (click)="pruebas()">Generar</ion-button>
-  <ion-item>
-    <ion-select placeholder="Select One">
-      <ion-select-option value="f">Female</ion-select-option>
-      <ion-select-option value="m">Male</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <br>
+  <ion-button color="verdeZango" (click)="pruebas()">Generar</ion-button>
+  
 </ion-content>

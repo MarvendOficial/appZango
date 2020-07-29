@@ -20,14 +20,12 @@
         <ion-col style="padding-top: 3%;">Actividad</ion-col>
       </ion-row>
     </ion-card>
-
     <form #f="ngForm">
       <div *ngFor="let in of exterior">
         <div *ngIf="in.observacion.length > 0 ">
-          <ion-label>Trampa {{in.trampa}}</ion-label>
+          <ion-label>Trampa {{in.trampa+1}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
-
               <ion-col>
                 <ion-row>
                   <ion-col class="bordeV" size="4">
@@ -82,7 +80,7 @@
           </ion-card>
         </div>
         <div *ngIf="in.observacion.length === 0 ">
-          <ion-label>Trampa {{in.trampa}}</ion-label>
+          <ion-label>Trampa {{in.trampa+1}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
               <ion-col>
@@ -140,10 +138,9 @@
         </div>
       </div>
     </form>
-
   </ion-card>
-
 </ion-content>
+
 <ion-footer *ngIf="datos === 0">
   <form #subir="ngForm">
     <ion-row style="text-align: center;">

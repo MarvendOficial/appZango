@@ -18,7 +18,6 @@ export class EmpresaPage implements OnInit {
       console.log(this.datos);
     });
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
   }
 
   irExteriores() {

@@ -50,7 +50,8 @@ export class RegistrarPage implements OnInit {
           ed: false,
           ee: false,
           er: false,
-          sc: false
+          sc: false,
+          sr: false
         }
       };
       this.registrarEmpresa.insertarTrampasInterior(trampa, index, this.empresa.id);

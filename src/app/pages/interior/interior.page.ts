@@ -20,8 +20,12 @@ export class InteriorPage implements OnInit {
   ee = false;
   er = false;
   sc = false;
+  sr = false;
 
   constructor(private route: ActivatedRoute, private empresaService: ConeccionService, private empresaForm: FormBuilder) {
+  }
+
+  ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.empresaService.obtenerId(this.id).subscribe((res) => {
       this.interior = res;
@@ -38,10 +42,18 @@ export class InteriorPage implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async guardarTrampa(f, id) {
+    await this.generarDatos(f, id);
 
+    this.cc = false;
+    this.eb = false;
+    this.ed = false;
+    this.ee = false;
+    this.er = false;
+    this.sc = false;
+    this.sr = false;
   }
-  guardarTrampa(f, id) {
+  generarDatos(f, id) {
     const trampa = {
       noAnimal: f.value.noAnimal,
       observacion: f.value.observacion,
@@ -51,16 +63,11 @@ export class InteriorPage implements OnInit {
         ed: this.ed,
         ee: this.ee,
         er: this.er,
-        sc: this.sc
+        sc: this.sc,
+        sr: this.sr
       }
-    }
+    };
     this.empresaService.guardarTrampa(this.id, trampa, id, 'interior');
-    this.cc = false;
-    this.eb = false;
-    this.ed = false;
-    this.ee = false;
-    this.er = false;
-    this.sc = false;
   }
   check(e, name) {
     const checked = e.detail.checked;
@@ -76,6 +83,8 @@ export class InteriorPage implements OnInit {
       this.er = checked;
     } else if (name === 'sc') {
       this.sc = checked;
+    } else if (name === 'sr') {
+      this.sr = checked;
     }
   }
   subirCambios(f) {
@@ -103,5 +112,4 @@ export class InteriorPage implements OnInit {
       this.empresaService.insertarTrampasInterior(trampa, index, this.id);
     }
   }
-  
 }

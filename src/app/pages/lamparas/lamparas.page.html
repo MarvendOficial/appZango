@@ -24,7 +24,7 @@
     <form #f="ngForm">
       <div *ngFor="let l of lamparas">
         <div *ngIf="l.observacion.length > 0 ">
-          <ion-label>lampara {{l.lampara}}</ion-label>
+          <ion-label>lampara {{l.lampara+1}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
               <ion-col>
@@ -106,7 +106,7 @@
           </ion-card>
         </div>
         <div *ngIf="l.observacion.length === 0 ">
-          <ion-label>lampara {{l.lampara}}</ion-label>
+          <ion-label>lampara {{l.lampara+1}}</ion-label>
           <ion-card class="bordeV ct" color="negroZango">
             <ion-row>
               <ion-col>

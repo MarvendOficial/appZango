@@ -48,6 +48,7 @@ export class Tab2Page implements OnInit {
   //   });
   // }
 
+<<<<<<< HEAD
   datos: any = [];
   constructor(private router: Router, private empresaService: ConeccionService, private navCtrl: NavController) {
     this.empresaService.obtenerEmpresas().subscribe((res) => {
@@ -61,6 +62,34 @@ export class Tab2Page implements OnInit {
   }
   verEmpresas() {
     console.log(this.empresaService.obtenerEmpresas())
+=======
+  GraficaInteriores() {
+    this.bars = new Chart(this.barChart.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8"], //nuemros de trampas
+        datasets: [{
+          label: 'Consumo de Trampas Interiores',
+          data: [2, 0, 5, 11, 0, 3, 0, 1], //numero de animales
+          backgroundColor: 'rgba(0,187,100)'
+        }]
+      }
+    });
+  }
+
+  GraficaExteriores() {
+    this.bars2 = new Chart(this.barChart2.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8"],//nuemros de trampas
+        datasets: [{
+          label: 'Consumo de Trampas Exteriores',
+          data: [0, 100, 50, 0, 100, 50, 0, 100],//numero de animales
+          backgroundColor: 'rgba(0,187,100)'
+        }]
+      }
+    });
+>>>>>>> 0e11ea8151bc889038218908237324dec0c5f96b
   }
 
 
