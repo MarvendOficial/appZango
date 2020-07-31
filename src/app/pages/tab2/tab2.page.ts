@@ -1,38 +1,50 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
-import { Router } from '@angular/router';
-import { ConeccionService } from 'src/app/services/coneccion.service';
-import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-tab2',
   templateUrl: './tab2.page.html',
   styleUrls: ['./tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
+  @ViewChild('barChart', { static: true }) barChart;
+  @ViewChild('barChart2', { static: true }) barChart2;
+  bars: any;
+  bars2: any;
+  constructor() { }
 
-  datos: any = [];
-  constructor(private router: Router, private empresaService: ConeccionService, private navCtrl: NavController) {
-    this.empresaService.obtenerEmpresas().subscribe((res) => {
-      this.datos = res;
+  ngOnInit() {
+    this.GraficaInteriores();
+    this.GraficaExteriores();
+  }
+
+  GraficaInteriores() {
+    this.bars = new Chart(this.barChart.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8"], //nuemros de trampas
+        datasets: [{
+          label: 'Consumo de Trampas Interiores',
+          data: [2, 0, 5, 11, 0, 3, 0, 1], //numero de animales
+          backgroundColor: 'rgba(0,187,100)'
+        }]
+      }
     });
   }
 
-  empresa(id: number) {
-    this.empresaService.obtenerDatosEmpres(id).subscribe((res:any)=>{
-      console.log(res)
-      if(typeof (res.reportesPdf) !== 'undefined' ){
-           this.router.navigateByUrl('graficas/' + id);
-      }else{
-        alert('No existen datos');
+  GraficaExteriores() {
+    this.bars2 = new Chart(this.barChart2.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8"],//nuemros de trampas
+        datasets: [{
+          label: 'Consumo de Trampas Exteriores',
+          data: [0, 100, 50, 0, 100, 50, 0, 100],//numero de animales
+          backgroundColor: 'rgba(0,187,100)'
+        }]
       }
-    })
-  }
-  verEmpresas() {
-    console.log(this.empresaService.obtenerEmpresas())
+    });
   }
 
 
-  ngOnInit() {
-  }
 
 }

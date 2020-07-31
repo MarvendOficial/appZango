@@ -4,8 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="negroZango">
-  <!-- <ion-card color="negroZango">
+<ion-content color="negroZango" class="ct">
+  
+  <ion-card color="negroZango">
     Interiores
   </ion-card>
   <ion-card color="negroZango">
@@ -15,18 +16,10 @@
 
 
 <ion-content  color="negroZango" class="ct">
-  <ion-card color="negroZango">         
+  <ion-card color="negroZango">
     Exteriores
   </ion-card>
   <ion-card color="negroZango">
     <canvas #barChart2></canvas>
-  </ion-card> -->
-  <div class="empresas" *ngFor="let d of datos" (click)="empresa(d.id)">
-    <ion-button color="verdeZango">
-      <div class="text">
-        {{d.nombre}}
-      </div>
-      <ion-icon name="arrow-forward" slot="end"></ion-icon>
-    </ion-button>
-  </div>
+  </ion-card>
 </ion-content>
