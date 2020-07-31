@@ -3,6 +3,7 @@ import { Chart } from 'chart.js';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConeccionService } from 'src/app/services/coneccion.service';
 import { NavController } from '@ionic/angular';
+import { database } from 'firebase';
 @Component({
   selector: 'app-graficas',
   templateUrl: './graficas.page.html',
@@ -24,35 +25,39 @@ export class GraficasPage implements OnInit {
   constructor(private router: Router, private empresaService: ConeccionService, private route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('id');
 
-    this.empresaService.obtenerReportesPdf(this.id).subscribe((res) => {
+    this.empresaService.obtenerReportesPdf(this.id).subscribe((res: any) => {
       this.pruebas = res;
+      console.log(res);
       this.fechas(res);
+      for (const key in res) {
+        if (res.hasOwnProperty(key)) {
+
+        }
+      }
     })
   }
   fechas(data: any) {
-    let acu = '2020-07-16';
+    let acu = '0000-00-00';
     let noReporte = 0;
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         const datas = data[key];
-        console.log(datas.portada.fecha);
-        if (acu <= datas.portada.fecha) {
-          acu = datas.portada.fecha;
-          noReporte = datas.portada.noReporte;
+        if (typeof (datas.interior) !== 'undefined' && typeof (datas.exterior)
+          !== 'undefined' && typeof (datas.portada) !== 'undefined' && typeof (datas.lamparas) !== 'undefined') {
+          if (acu <= datas.portada.fecha) {
+            acu = datas.portada.fecha;
+            noReporte = datas.portada.noReporte;
+          }
         }
       }
     }
-
+    console.log(acu);
     this.empresaService.graficas(this.id, noReporte).subscribe((res: any) => {
-      const valorVerificar = res;
-      if (typeof (valorVerificar.interior) !== 'undefined' && typeof (valorVerificar.exterior)
-        !== 'undefined' && typeof (valorVerificar.portada) !== 'undefined' && typeof (valorVerificar.lamparas) !== 'undefined') {
-        console.log(res);
-        this.interiores = res.interior;
-        this.exteriores = res.exterior;
-        console.log(this.interiores, this.exteriores);
-        this.ionViewDidEnter(this.interiores, this.exteriores);
-      }
+      console.log(res);
+      this.interiores = res.interior;
+      this.exteriores = res.exterior;
+      console.log(this.interiores, this.exteriores);
+      this.ionViewDidEnter(this.interiores, this.exteriores);
     });
   }
 
