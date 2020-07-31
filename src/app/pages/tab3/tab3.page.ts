@@ -22,8 +22,16 @@ export class Tab3Page implements OnInit {
     });
   }
   irReportes(id) {
-    this.router.navigateByUrl('reportes/' + id);
+    this.empresaService.obtenerDatosEmpres(id).subscribe((res: any) => {
+      console.log(res)
+      if (typeof (res.reportesPdf) !== 'undefined') {
+        this.router.navigateByUrl('reportes/' + id);
+      } else {
+        alert('No existen datos');
+      }
+    });
+
   }
   ngOnInit() {
   }
- }
+}

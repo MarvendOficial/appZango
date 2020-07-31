@@ -21,20 +21,13 @@ export class GraficasPage implements OnInit {
   @ViewChild('barChart2', { static: true }) barChart2;
   bars: any;
   bars2: any;
-  pruebas: any[] = [];
   constructor(private router: Router, private empresaService: ConeccionService, private route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('id');
 
     this.empresaService.obtenerReportesPdf(this.id).subscribe((res: any) => {
-      this.pruebas = res;
       console.log(res);
       this.fechas(res);
-      for (const key in res) {
-        if (res.hasOwnProperty(key)) {
-
-        }
-      }
-    })
+    });
   }
   fechas(data: any) {
     let acu = '0000-00-00';
@@ -48,6 +41,8 @@ export class GraficasPage implements OnInit {
             acu = datas.portada.fecha;
             noReporte = datas.portada.noReporte;
           }
+        } else {
+          console.error('no hay datos');
         }
       }
     }
@@ -86,13 +81,21 @@ export class GraficasPage implements OnInit {
   }
 
   GraficaInteriores(trampas, observaciones) {
+    let label = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    let datas = [2, 0, 5, 11, 0, 3, 0, 1];
+    if (trampas != 0) {
+      label = trampas;
+    }
+    if (observaciones != 0) {
+      datas = observaciones;
+    }
     this.bars = new Chart(this.barChart.nativeElement, {
       type: 'horizontalBar',
       data: {
-        labels: trampas,
+        labels: label,
         datasets: [{
           label: 'Consumo de Trampas Interiores',
-          data: observaciones,
+          data: datas,
           backgroundColor: 'rgba(0,187,100)'
         }]
       },
@@ -100,13 +103,21 @@ export class GraficasPage implements OnInit {
   }
 
   GraficaExteriores(trampas, observaciones) {
+    let label = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    let datas = [2, 0, 5, 11, 0, 3, 0, 1];
+    if (trampas != 0) {
+      label = trampas;
+    }
+    if (observaciones.length != 0) {
+      datas = observaciones;
+    }
     this.bars2 = new Chart(this.barChart2.nativeElement, {
       type: 'horizontalBar',
       data: {
-        labels: trampas,
+        labels: label,
         datasets: [{
           label: 'Consumo de Trampas Exteriores',
-          data: observaciones,
+          data: datas,
           backgroundColor: 'rgba(0,187,100)'
         }]
       },
