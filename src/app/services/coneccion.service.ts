@@ -21,7 +21,10 @@ export class ConeccionService {
     this.grupoZango.object(`grupoZangoApp/empresa/${id}/reportes/lamparas/${lampara}`).update(lamparas);
   }
   obtenerEmpresas() {
-    return this.grupoZango.list('grupoZangoApp/empresa').valueChanges();
+    return this.grupoZango.list('grupoZangoApp/empresa/').valueChanges();
+  }
+  graficas(id:any,noReporte){
+    return this.grupoZango.object(`grupoZangoApp/empresa/${id}/reportesPdf/${noReporte}`).valueChanges();
   }
   obtenerReportesPdf(id: any) {
     return this.grupoZango.list(`grupoZangoApp/empresa/${id}/reportesPdf`).valueChanges();
