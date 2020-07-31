@@ -39,11 +39,18 @@ const routes: Routes = [
     path: 'graficas/:id',
     loadChildren: () => import('./pages/graficas/graficas.module').then(m => m.GraficasPageModule)
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c87f73cc1fe72e39ddb403d26d000cca934af74
   {
     path: 'reportes/:id',
     loadChildren: () => import('./pages/reportes/reportes.module').then(m => m.ReportesPageModule)
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c87f73cc1fe72e39ddb403d26d000cca934af74
 ];
 
 @NgModule({

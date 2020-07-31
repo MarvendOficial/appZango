@@ -16,7 +16,7 @@
         <ion-row>
           <ion-col size="12">
             Numero del reporte
-            <ion-input name="noReporte" [(ngModel)]="portada.noReporte" class="bordeV2"></ion-input>
+            <ion-input type='number' name="noReporte" [(ngModel)]="portada.noReporte" class="bordeV2"></ion-input>
           </ion-col>
         </ion-row>
       </ion-card>
@@ -932,7 +932,7 @@
 
       </ion-col>
       <ion-col size="8">
-        <ion-button color="verdeZango" class="ct">
+        <ion-button (click)="ver()" color="verdeZango" class="ct">
           Generar Portada
         </ion-button>
       </ion-col>
@@ -942,9 +942,3 @@
     </ion-row>
   </form>
 </ion-content>
-
-<footer>
-  <ion-button (click)="ver()">
-    chechar
-  </ion-button>
-</footer>

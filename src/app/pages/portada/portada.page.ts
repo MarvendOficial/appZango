@@ -45,19 +45,19 @@ export class PortadaPage implements OnInit {
 
     }
   }
-  async ver() {
-    const element = [];
-    // for (let index = 0; index < this.check.length; index++) {
-    //   if (this.check[index] === false) {
-    //     element.push('[ ]');
-    //   } else if (this.check[index] === true) {
-    //     element.push('[X]');
-    //   }
-    // }
-    console.log(this.portada, element);
-  }
-  // ver() {
-  //   this.empresaService.guardarReportePdf(this.id,this.portada.noReporte, 'portada', this.portada);
+  // async ver() {
+  //   const element = [];
+  //   // for (let index = 0; index < this.check.length; index++) {
+  //   //   if (this.check[index] === false) {
+  //   //     element.push('[ ]');
+  //   //   } else if (this.check[index] === true) {
+  //   //     element.push('[X]');
+  //   //   }
+  //   // }
+  //   console.log(this.portada, element);
   // }
+  ver() {
+    this.empresaService.guardarReportePdf(this.id,this.portada.noReporte, 'portada', this.portada);
+  }
 
 }
